@@ -29,10 +29,12 @@ application:
     # first entry is considered the default language
     de: Deutsch
 
-<% mail_domain = ENV['RAILS_MAIL_DOMAIN'].presence || ENV['RAILS_HOST_NAME'].presence || 'localhost'
-  hostname    = ENV['RAILS_HOST_NAME'].presence || 'localhost:3000'
-  protocol    = 'http' %>
-
+<% mail_domain = ENV['RAILS_MAIL_DOMAIN'].presence ||
+                 ENV['RAILS_HOST_NAME'].presence ||
+                 'localhost'
+   hostname    = ENV['RAILS_HOST_NAME'].presence || 'localhost:3000'
+   protocol    = %w(true yes 1).include?(ENV['RAILS_HOST_SSL']) ? 'https' : 'http'
+%>
 currency:
   unit: CHF
 
