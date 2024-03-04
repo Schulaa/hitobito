@@ -1,5 +1,5 @@
 application:
-  name: hitobito_akk  # set same name in email.sender and email.mass_recipient
+  name: hitobito_akk # set same name in email.sender and email.mass_recipient
   logo:
     image: logo.png # put under app/assets/images
     height: 30 # pixel, has to bet set as the logo is a background image,
@@ -32,32 +32,28 @@ currency:
 
 email:
   # Sender for all emails sent by the application
-  sender: <%= "Akkorderdeonclub Höllental e.V. <info@akkhoellental.de>" %>
+  sender: "Akkorderdeonclub Höllental e.V. <info@akkhoellental.de>"
 
   # If mass emails are sent, this recipient is used in the to field,
   # while the actual recipients go in the bcc field.
-  mass_recipient: <%= "Akkorderdeonclub Höllental e.V. <info@akkhoellental.de>" %>
+  mass_recipient: "Akkorderdeonclub Höllental e.V. <info@akkhoellental.de>"
 
   # domain where mailing lists are located
-  list_domain: <%= "akkhoellental.de" %>
+  list_domain: "akkhoellental.de"
 
   # configuration for retrieving email
   retriever:
     # interval to check for new mails in minutes
     interval: 1
-    type: <%= ENV['RAILS_MAIL_RETRIEVER_TYPE'].presence || 'pop3' %>
-    config:
-      <% if ENV['RAILS_MAIL_RETRIEVER_CONFIG'].present? %>
-        <%= "{ #{ENV['RAILS_MAIL_RETRIEVER_CONFIG']} }" %>
-      <% end %>
+    type: "pop3"
   bulk_mail:
-    bulk_size: <%= ENV['RAILS_BULK_MAIL_SIZE'].presence || 15 %>
-    batch_timeout: <%= ENV['RAILS_BULK_MAIL_BATCH_TIMEOUT'].presence || 5 %>
+    bulk_size: 15
+    batch_timeout: 5
 
 # The person with this email has root access to everything
 # This person should only be used by the operators of the application, not the customers.
 # Initially, a password reset token may be mailed from the application to this address to set a password.
-root_email: <%= ENV['RAILS_ROOT_USER_EMAIL'].presence || 'hitobito@puzzle.ch' %>
+root_email: "info@akkhoellental.de"
 
 sphinx:
   index:
@@ -129,7 +125,6 @@ xlsx:
   font_name: Calibri
   label_background: C0C0C0
 
-
 role:
   # If a role last less than this number of days, it is not archived
   minimum_days_to_archive: 7
@@ -179,7 +174,7 @@ event:
     delete_additional_information_after_months: 1200
 
 downloads:
-  folder: <%= Rails.root.join('tmp', 'downloads') %>
+  folder: "/tmp/downloads"
 
 impersonate:
   notify: true
@@ -219,8 +214,8 @@ worker_heartbeats:
     interval: 60
 
 oidc:
-  issuer: <%= protocol + "://" + hostname %>
-  signing_key: <%= ENV['JWT_SIGNING_KEY'].to_s.lines %>
+  issuer: " "
+  signing_key: " "
 
 table_displays: true
 
@@ -230,14 +225,14 @@ mailchimp:
 
 addresses:
   url: https://webservices.post.ch:17017/IN_ZOPAxFILES/v1/groups/1062/versions/latest/file/gateway
-  token: <%= ENV['ADDRESSES_TOKEN'] %>
+  token: "bd35a2db-4c05-4598-b84c-bbb387d6926b"
   imported_countries:
     - CH
 
 messages:
   enable_writing: false
   pdf:
-    preview: <%= Rails.root.join("app/javascript/images/preview.png") %>
+    preview: "/etc/www/hitobito/hitobito/app/javascript/images/preview.png)"
 
 groups:
   self_registration:
