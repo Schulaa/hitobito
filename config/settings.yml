@@ -232,7 +232,7 @@ addresses:
 messages:
   enable_writing: false
   pdf:
-    preview: "/etc/www/hitobito/hitobito/app/javascript/images/preview.png)"
+    preview: "/etc/www/hitobito/hitobito/app/javascript/images/preview.png"
 
 groups:
   self_registration:
