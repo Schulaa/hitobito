@@ -51,6 +51,7 @@ gem 'lograge'
 gem 'lograge_activejob'
 gem 'lograge-sql'
 gem 'magiclabs-userstamp', require: 'userstamp'
+gem 'matrix'
 gem 'mail' # add mail here to have it loaded
 gem 'mime-types'
 gem 'mini_magick'
