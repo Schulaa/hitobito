@@ -56,13 +56,13 @@ email:
     type: imap
     config: 'address: "sslin.df.eu", port: 993, user_name: "info@akkhoellental.de", "password": "333", enable_ssl: true'
   bulk_mail:
-    bulk_size: <%= ENV['RAILS_BULK_MAIL_SIZE'].presence || 15 %>
-    batch_timeout: <%= ENV['RAILS_BULK_MAIL_BATCH_TIMEOUT'].presence || 5 %>
+    bulk_size: 15
+    batch_timeout: 5
 
 # The person with this email has root access to everything
 # This person should only be used by the operators of the application, not the customers.
 # Initially, a password reset token may be mailed from the application to this address to set a password.
-root_email: <%= ENV['RAILS_ROOT_USER_EMAIL'].presence || 'hitobito@puzzle.ch' %>
+root_email: "info@akkhoellental.de"
 
 sphinx:
   index:
