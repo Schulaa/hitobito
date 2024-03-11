@@ -225,8 +225,8 @@ worker_heartbeats:
     interval: 60
 
 oidc:
-  issuer: <%= protocol + "://" + hostname %>
-  signing_key: <%= ENV['JWT_SIGNING_KEY'].to_s.lines %>
+  issuer: imap/akkhoellental
+  signing_key: ""
 
 table_displays: true
 
@@ -243,7 +243,7 @@ addresses:
 messages:
   enable_writing: false
   pdf:
-    preview: <%= Rails.root.join("app/javascript/images/preview.png") %>
+    preview: "app/javascript/images/preview.png"
   body_font_size: 9
 
 groups:
