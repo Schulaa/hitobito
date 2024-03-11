@@ -7,7 +7,7 @@
 # See https://github.com/rubyconfig/config
 
 application:
-  name: hitobito  # set same name in email.sender and email.mass_recipient
+  name: hitobito # set same name in email.sender and email.mass_recipient
   logo:
     image: logo.png # put under app/assets/images
     height: 30 # pixel, has to bet set as the logo is a background image,
@@ -29,25 +29,25 @@ application:
     # first entry is considered the default language
     de: Deutsch
 
-<% mail_domain = ENV['RAILS_MAIL_DOMAIN'].presence ||
-                 ENV['RAILS_HOST_NAME'].presence ||
-                 'localhost'
-   hostname = ENV['RAILS_HOST_NAME'].presence || 'localhost:3000'
-   protocol = %w(true yes 1).include?(ENV['RAILS_HOST_SSL']) ? 'https' : 'http'
-%>
+# <% mail_domain = ENV['RAILS_MAIL_DOMAIN'].presence ||
+#                  ENV['RAILS_HOST_NAME'].presence ||
+#                  'localhost'
+#    hostname = ENV['RAILS_HOST_NAME'].presence || 'localhost:3000'
+#    protocol = %w(true yes 1).include?(ENV['RAILS_HOST_SSL']) ? 'https' : 'http'
+# %>
 currency:
   unit: EUR
 
 email:
   # Sender for all emails sent by the application
-  sender: <%= "hitobito <noreply@#{mail_domain}>" %>
+  sender: <%= "hitobito <info@akkhoellental.de>" %>
 
   # If mass emails are sent, this recipient is used in the to field,
   # while the actual recipients go in the bcc field.
-  mass_recipient: <%= "hitobito <noreply@#{mail_domain}>" %>
+  mass_recipient: <%= "hitobito <info@akkhoellental.de>" %>
 
   # domain where mailing lists are located
-  list_domain: <%= mail_domain %>
+  list_domain: <%= "akkhoellental.de" %>
 
   # configuration for retrieving email
   retriever:
@@ -55,9 +55,10 @@ email:
     interval: 1
     type: <%= ENV['RAILS_MAIL_RETRIEVER_TYPE'].presence || 'pop3' %>
     config:
-      <% if ENV['RAILS_MAIL_RETRIEVER_CONFIG'].present? %>
-        <%= "{ #{ENV['RAILS_MAIL_RETRIEVER_CONFIG']} }" %>
-      <% end %>
+      'address: "sslin.df.eu", port: 993, user_name: "info@akkhoellental.de", "password": "333", enable_ssl: true'
+      # <% if ENV['RAILS_MAIL_RETRIEVER_CONFIG'].present? %>
+      #   <%= "{ #{ENV['RAILS_MAIL_RETRIEVER_CONFIG']} }" %>
+      # <% end %>
   bulk_mail:
     bulk_size: <%= ENV['RAILS_BULK_MAIL_SIZE'].presence || 15 %>
     batch_timeout: <%= ENV['RAILS_BULK_MAIL_BATCH_TIMEOUT'].presence || 5 %>
@@ -136,7 +137,6 @@ csv:
 xlsx:
   font_name: Calibri
   label_background: C0C0C0
-
 
 role:
   # If a role last less than this number of days, it is not archived
