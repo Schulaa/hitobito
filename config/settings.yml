@@ -53,7 +53,7 @@ email:
   retriever:
     # interval to check for new mails in minutes
     interval: 1
-    type: <%= ENV['RAILS_MAIL_RETRIEVER_TYPE'].presence || 'pop3' %>
+    type: imap
     config:
       'address: "sslin.df.eu", port: 993, user_name: "info@akkhoellental.de", "password": "333", enable_ssl: true'
       # <% if ENV['RAILS_MAIL_RETRIEVER_CONFIG'].present? %>
