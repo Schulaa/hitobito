@@ -36,7 +36,7 @@ application:
    protocol = %w(true yes 1).include?(ENV['RAILS_HOST_SSL']) ? 'https' : 'http'
 %>
 currency:
-  unit: CHF
+  unit: EUR
 
 email:
   # Sender for all emails sent by the application
