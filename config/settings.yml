@@ -125,7 +125,7 @@ countries:
 
 # Presets for CSV export
 csv:
-  separator: ;
+  separator: ";"
   encoding: UTF-8
   utf8_bom: true # allowing M$ Excel to read UTF-8
 
