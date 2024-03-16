@@ -4,36 +4,26 @@
 #  https://github.com/hitobito/hitobito.
 
 base: &generic
-  adapter: <%= ENV['RAILS_DB_ADAPTER'] || 'sqlite3' %>
+  adapter: "sqlite3"
   pool: 20
   timeout: 5000
-<% if ENV.fetch('RAILS_DB_ADAPTER', 'sqlite3') =~ /mysql/ %>
-  encoding: 'utf8mb4'
-  collation: 'utf8mb4_general_ci' # case insensitive search is a feature
-<% else %>
-  encoding: 'utf8'
-<% end %>
-<% %w(host port username password socket).each do |option| %>
-  <% value = ENV["RAILS_DB_#{option.upcase}"] %>
-  <%= "#{option}: #{value}" if value.present? %>
-<% end %>
+  collation: "utf8mb4_general_ci" # case insensitive search is a feature
 
   # see https://github.com/rails/rails/issues/25924
   variables:
     sql_mode: TRADITIONAL
 
-
 development:
   <<: *generic
-  database: <%= ENV['RAILS_DB_NAME'] || "#{Rails.root}/db/development.sqlite3" %>
+  database: AKKHOELLHITOBITO_DEV
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *generic
-  database: <%= ENV['RAILS_TEST_DB_NAME'] || ENV['RAILS_DB_NAME'] || "#{Rails.root}/db/test.sqlite3" %>
+  database: AKKHOELLHITOBITO_TEST
 
 production:
   <<: *generic
-  database: <%= ENV['RAILS_DB_NAME'] || "#{Rails.root}/db/production.sqlite3" %>
+  database: AKKHOELLHITOBITO
