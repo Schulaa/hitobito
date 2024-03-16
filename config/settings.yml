@@ -48,7 +48,7 @@ email:
     # interval to check for new mails in minutes
     interval: 1
     type: imap
-    config: "address => sslin.df.eu, port => 993, user_name => info@akkhoellental.de, password => 333, enable_ssl => true"
+    config: ':address => "sslin.df.eu", :port => 993, :user_name => "info@akkhoellental.de", :password => "333", :enable_ssl => true'
   bulk_mail:
     bulk_size: 15
     batch_timeout: 5
